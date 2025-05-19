@@ -127,16 +127,21 @@ Questa sezione è omessa in quanto di facile intuizione e precedentemente tratta
 > > 
 > > Da non confondere nella notazione l'utilizzo delle parentesi graffe e delle parentesi tonde, in quanto le prime non tengono conto dell'ordine mentre le seconde sì
 
-### Definizione rigorosa delle coppie ordinate
+### Definizione rigorosa delle coppie ordinate (Kuratowski)
 
-Nella teoria degli insiemi possiamo fornire una definizione rigorosa delle coppie ordinate e delle triple ordinate. Per una coppia ordinata $(x,y)$, essa è definita come:
+Nella teoria degli insiemi possiamo fornire una definizione rigorosa delle coppie ordinate e delle triple ordinate, questo al fine di distinguere chiaramente la differenza tra $(x,y)$ e $(y,x)$ ad esempio. Per una coppia ordinata $(x,y)$, essa è definita come:
 
 $$
 (x,y) = \{ \{ x \}, \{ x,y \} \}
 $$
 Questa definizione garantisce che le coppie ordinate siano distinguibili dalle singole componenti. Analogamente, per una tripla ordinata $(x,y,z)$, possiamo estendere la definizione nel seguente modo:
 $$
-(x,y,z) = \{ \{ x \}, \{ x, \{ y \}, \{ y,z \} \} \}
+  \begin{align*}
+    & \text{1. }(x,y,z) \\
+    & \text{2. }(x,(y,z)) \\
+    & \text{3. }\{ x, \{ x, (y,z) \} \} \text{ e sappiamo che } (y,z) = \{ y, \{ y, z \} \} \\
+    & \text{4. } \{ \{ x \}, \{ x, \{\{ y \}, \{ y,z \} \}\} \}
+  \end{align*}
 $$
 Questa rappresentazione rigorosa si generalizza a tuple di ordine superiore.
 
@@ -251,7 +256,10 @@ e notiamo che c'è sempre dipendenza da un _rappresentante_ $x$ della classe.
 >     \end{align*}
 > $$
 >
-> In particolare, data una classe d'equivalenza $\mathrm{C}$, allora $\forall x \in \mathrm{C}$, $\mathrm{C} = \mathrm{Cl}(x)$; ogni elemento è rappresentante della classe cui appartiene.
+> In particolare, data una classe d'equivalenza $\mathrm{C}$, allora $\forall x \in \mathrm{C}$, $\mathrm{C} = \mathrm{Cl}(x)$; ogni elemento è rappresentante della classe cui appartiene. Inoltre, le classi di equivalenza sono **disgiunte**, ossia ogni elemento di $X$ appartiene a una sola classe.
+> 
+> > [!warning]+ Osservazione
+> > In sintesi, possiamo considerare le classi di equivalenza come gli insiemi di elementi che la relazione non è in grado di distinguere tra loro.
 
 > [!tip]- Dimostrazione del punto 1
 > 
@@ -322,12 +330,13 @@ e notiamo che c'è sempre dipendenza da un _rappresentante_ $x$ della classe.
 > $$
 >  \mathcal{P}(X) = \{ P : P \subseteq X \}
 > $$
-
+> 
+> **N.B.** l'insieme delle parti contiene anche l'insieme vuoto, ovvero $\emptyset \in \mathcal{P}$
 ## Partizioni di un Insieme
 
 > [!info] Definizione di partizione
 > 
-> Sia $\mathcal{P}$ un insieme di sottoinsiemi non vuoti di $X$, cioè $\mathcal{P} \subseteq \mathcal{P}(X) \text{ e } \mathcal{P} \not = \emptyset$.
+> Sia $\mathcal{P}$ un insieme di sottoinsiemi **non vuoti** (quindi $\emptyset \not\in \mathcal{P}$) di $X$, cioè $\mathcal{P} \subseteq \mathcal{P}(X) \text{ e } \mathcal{P} \not = \emptyset$.
 > 
 > Si dice che $\mathcal{P}$ è una **partizione** di $X$ se soddisfa le seguenti condizioni:
 > 
@@ -352,7 +361,7 @@ e notiamo che c'è sempre dipendenza da un _rappresentante_ $x$ della classe.
 >         \forall x \in X,\, \exists P \in \mathcal{P} : x \in P
 >     $$
 
-In sintesi, una partizione di $X$ è un insieme di sottoinsiemi non vuoti, a due a due disgiunti, la cui unione è l'intero insieme $X$.
+In sintesi, una partizione di $X$ è un insieme di sottoinsiemi non vuoti, a due a due disgiunti, la cui unione è l'intero insieme $X$ (_de facto la partizione rappresenta un "modo" di suddividere tutto l'insieme $X$_).
 
 > [!abstract] Proposizione 2
 > 
@@ -400,7 +409,7 @@ In sintesi, una partizione di $X$ è un insieme di sottoinsiemi non vuoti, a due
 >    - Per ogni $x \in X$:
 >      - Abbiamo già stabilito che $x \in \mathrm{Cl}(x)$
 >    - Quindi:
->      - Ogni elemento di £X£ appartiene ad almeno una classe di equivalenza in $\mathcal{P}
+>      - Ogni elemento di £X£ appartiene ad almeno una classe di equivalenza in $\mathcal{P}$
 >    - **Conclusione:**
 >       $$
 >         X = \bigcup_{x \in X} \mathrm{Cl}(x) = \bigcup_{P\in \mathcal{P}}P
@@ -414,7 +423,6 @@ In sintesi, una partizione di $X$ è un insieme di sottoinsiemi non vuoti, a due
 > 3. L'unione delle classi copre tutto $X$;
 >    
 > Possiamo concludere che $\mathcal{P}$ è una **partizione** di $X$
-
 ## Insieme quoziente
 
 > [!info] Definizione di insieme quoziente
