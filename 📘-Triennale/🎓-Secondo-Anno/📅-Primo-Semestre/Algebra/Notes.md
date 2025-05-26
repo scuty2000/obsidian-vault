@@ -1012,3 +1012,63 @@ Vediamo alcune proprietà degli Anelli:
 > 	- GENERICO: Qualsiasi numero razionale diverso da zero $\frac{a}{b}$ ha un inverso $\frac{b}{a}$
 > 
 > Sono solo alcuni esempi ma rendono l'idea.
+
+## Proprietà dell'anello $\mathbb{Z}$
+
+L'anello $\mathbb{Z}$ ha alcune proprietà particolari.
+
+Esiste il sottoinsieme $\mathbb{N^*} = \mathbb{N}/\{ 0 \} \subset \mathbb{Z}$ che permette di definire una relazione di ordinamento su $\mathbb{Z}$ che si scrive come $a < b \iff a-b \in \mathbb{N^*}$
+
+> [!info] Proprietà di Tricotomia
+>$$
+>\forall a \in \mathbb{Z} \text{ si ha: } \begin{cases}
+>a \in \mathbb{N^*} \implies \text{è positivo} \\
+>a = 0 \implies \text{è nullo} \\
+>-a \in \mathbb{N^*} \implies \text{è negativo}
+>\end{cases}
+>$$
+
+> [!info] Principio di Buon Ordinamento
+> 
+> Questo principio ci garantisce che ogni sottoinsieme $E \subset \mathbb{N^*}$ non vuoto possiede un più piccolo elemento, ossia:
+> 
+> $$
+> \exists c \in E \text{ t.c. } \forall e \in E/\{ c \} \text{ si ha } e>c
+> $$
+
+> [!info] legge di cancellazione in $\mathbb{Z}$
+> Se $ab=ac$ con $a\not=0$, allora $b=c$
+
+## Relazione di Divisibilità
+
+Introduciamo la relazione di divisibilità, espressa come:
+$$
+a,b \in A: a\mid b  \iff \exists c \in A \text{ t.c. } b = a*c
+$$
+> [!warning] Attenzione
+> La relazione $a \mid b$ si legge come "a divide b", oppure "a è divisore di b" oppure "b è divisibile per a". Quindi $2 \mid 4$  significa che "2 divide 4", mentre $2 \nmid 7$ sarebbe "2 non divide 7"
+
+Questa relazione è:
+- **Riflessiva**: $\forall a \in A \text{ vale che } a = a*1_{A}$
+- **Transitiva**: 
+$$
+\begin{align}
+& \text{Dati } a,b,c \in A \\ &\\& \begin{cases}
+a\mid b \iff b = a*a' (\exists a' \in A) \\
+b\mid c \iff c = b*b' (\exists b' \in A) \\
+\end{cases} \\
+&  \\
+& \text{quindi } c = a*a'*b' = a*(a'*b') = a*a'' \implies c = a*a'' \iff a\mid c
+\end{align}
+$$
+Non è invece __simmetrica__ (es. $2\mid4$ mentre $4\nmid3$) né **antisimmetrica** (quest'ultimo lo è solo su $\mathbb{N^*}$)
+
+La divisibilità è anche compatibile con la somma (e con il prodotto):
+$$
+a|b, a|c \implies \begin{cases}
+a \mid b+c \\
+a \mid b*c
+\end{cases}
+$$
+Più generalmente, se $\alpha, \beta \in A$, $a \mid b$ e $a \mid c \implies a \mid \alpha*b+\beta*c$
+_// riprendere da slide 5 settimana 3_
