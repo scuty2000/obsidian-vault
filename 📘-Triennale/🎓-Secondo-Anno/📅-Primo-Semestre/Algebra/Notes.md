@@ -917,3 +917,98 @@ Geometricamente, possiamo notare che ogni classe di equivalenza $X' \in X/\sim$ 
 
 A cosa ci serve questo teorema? Per ora non ho la più pallida idea. In teoria lo capiamo più avanti. I'm tired boss.
 
+# Anelli
+
+Prima di iniziare questo nuovo argomento, definiamo per comodità un insieme $Z$ "munito di operazione _opposto_":
+$$
+\begin{align}
+& \mathbb{Z} \xrightarrow{-(.)} \mathbb{Z} \\
+& a \mapsto -a
+\end{align}
+$$
+e di due __operazioni binarie__:
+
+1. **Somma**:
+$$
+\begin{align}
+& \mathbb{Z} \times \mathbb{Z} \xrightarrow{+} \mathbb{Z} \\
+& (a, b) \mapsto a+b
+\end{align}
+$$
+2. Prodotto:
+$$
+\begin{align}
+& \mathbb{Z} \times \mathbb{Z} \xrightarrow{*} \mathbb{Z} \\ \\
+
+(a,b) \mapsto a*b = &\begin{cases}
+\text{se } b = 0 \rightarrow 0 \\
+\text{se } b > 0 \rightarrow a+a+\dots+a \text{ (per b volte)} \\
+\text{se } b < 0 \rightarrow (-(a*(-b)))
+\end{cases} \\
+\end{align}
+$$
+
+L'operazione di "opposto" associa ad ogni $a \in \mathbb{Z}$ l'unico elemento $-a \text{ t.c. } a+(-a) = 0$
+
+> [!info] Definizione di Anello
+> 
+> Un anello (commutativo unitario) è il dato di una sestupla $(A, +, -, *, 0_{A}, 1_{A})$ dove:
+> 
+> - A $\longrightarrow$ insieme non vuoto ($A \not= \emptyset$)
+> - $+,* \rightarrow A \times A \longrightarrow A$ (sono operazioni binarie)
+> - $- \rightarrow A \longrightarrow A$ (operazione di opposto)
+> - $0_{A} \rightarrow 0_{A} \in A$ (elemento neutro dell'addizione)
+> - $1_{A} \rightarrow 1_{A} \in A$ (elemento neutro della moltiplicazione)
+
+Questi dati devono soddisfare 8 proprietà, di cui 4 sull'addizione e 4 sul prodotto:
+
+> [!info] Proprietà sull'addizione
+> 
+> 1) **Commutatività della Somma**: $\forall a,b \in A \text{ vale che } a+b = b+a$ 
+> 2) **Associatività della Somma**: $\forall a,b,c \in A \text{ vale che } (a+b)+c = a+(b+c)$
+> 3) **Elemento Neutro della Somma**: $\forall a \in A \text{ vale che } a + 0_{A} = 0_{A} + a = a$
+> 4) **Opposto**: $\forall a \in A \text{ vale che } a+(-a) = 0_{A}$
+>    
+> > [!note] Gruppo Abeliano
+> > Queste quattro proprietà indicano che $(A,+,-,0_{A})$ è un **Gruppo Abeliano** in notazione additiva _(vedi gruppi)_
+
+> [!info] Proprietà sul prodotto
+> 
+> 5) **Associatività del Prodotto**: $\forall a,b,c \in A \text{ vale che } a(b*c) = (a*b)c = abc$
+> 6) **Distributività**: $\forall a,b,c \in A \text{ vale che } \begin{cases} (b+c) = ab+ac \\ (a+b)c = ac+bc \end{cases}$
+> 7) **Elemento Neutro del Prodotto**: $\forall a \in A \text{ vale che } a*1_{A} = 1_{A} * a = a$
+> 8) **Commutatività del Prodotto**: $\forall a,b \in A \text{ vale che } ab=ba$
+> 
+> > [!warning] Osservazioni
+> > Notiamo che la proprietà 7 (elemento neutro del prodotto) rende l'anello **unitario**, mentre la proprietà 8 (communitatività del prodotto) rende l'anello **commutativo**
+
+Ad esempio, l'insieme $\mathbb{Z}$ dei numeri relativi è un anello commutativo unitario, mentre l'insieme $\mathbb{N}$ dei numeri naturali non è un anello commutativo unitario poiché non definisce un'operazione di "opposto".
+
+Vediamo alcune proprietà degli Anelli:
+
+1. $\forall a \in A \text{ vale che } a*0_{A} = 0_{A}$
+2. Se $0_{A} = 1_{A}$, allora $\forall a \in A$ si ha $a=0_{A}$, ovvero $A = \{ 0_{A} \}$
+
+## Elementi Invertibili
+
+> [!info] Definizione di Elemento Invertibile
+> 
+> Sia $A$ anello commutativo unitario con $1_{A} \not= 0_{A}$.
+> Un elemento $a \in A$ è detto **invertibile** (o **unità**) se esiste un elemento $b \in A$ tale che:
+> $$
+> a*b = b*a = 1_{A}
+> $$
+> L'elemento $b$ è detto **inverso di $a$** e viene solitamente denotato con $a^{-1}$
+
+> [!note]- Qualche esempio concreto
+> 
+> 1. Anello degli Interi ($\mathbb{Z}$)
+> 	- $a = 1 \implies a^{-1} = 1$ ($1*1=1=1_{A}$)
+> 	- $a = -1 \implies a^{-1} = -1$ ($-1 * -1 = 1 = 1_{A}$)
+> 	- NOTA: Gli altri interi non hanno inversi in $\mathbb{Z}$
+> 2. Anello dei Numeri Razionali ($\mathbb{Q}$)
+> 	- $a = \frac{3}{2} \implies a^{-1} = \frac{2}{3}$ ($\frac{3}{2} * \frac{2}{3} = 1 = 1_{A}$) 
+> 	- $a = -5 \implies a^{-1} = -\frac{1}{5}$ ($-5 * -\frac{1}{5} = 1 = 1_{A}$)
+> 	- GENERICO: Qualsiasi numero razionale diverso da zero $\frac{a}{b}$ ha un inverso $\frac{b}{a}$
+> 
+> Sono solo alcuni esempi ma rendono l'idea.
