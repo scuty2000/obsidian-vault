@@ -13,6 +13,6 @@ title: 🏠 Home
 ---
 ### 📅 **Primo Semestre**
 
-- 📐 [[Algebra]]
+- 📐 [[Notes]]
 - 🎲 [[Calcolo delle Probabilità]]
 - 🗃️ [[Basi di Dati - Modulo 1]]

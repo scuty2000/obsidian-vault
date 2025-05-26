@@ -1,0 +1,351 @@
+{
+  "userId": "d613c7b7-7661-483c-8214-ac8f1943d47f",
+  "isPlusUser": false,
+  "plusLicenseKey": "",
+  "openAIApiKey": "",
+  "openAIOrgId": "",
+  "huggingfaceApiKey": "",
+  "cohereApiKey": "",
+  "anthropicApiKey": "",
+  "azureOpenAIApiKey": "",
+  "azureOpenAIApiInstanceName": "",
+  "azureOpenAIApiDeploymentName": "",
+  "azureOpenAIApiVersion": "",
+  "azureOpenAIApiEmbeddingDeploymentName": "",
+  "googleApiKey": "",
+  "openRouterAiApiKey": "",
+  "xaiApiKey": "",
+  "mistralApiKey": "",
+  "deepseekApiKey": "",
+  "defaultChainType": "llm_chain",
+  "defaultModelKey": "gemma3:27b-it-qat|ollama",
+  "embeddingModelKey": "text-embedding-3-small|openai",
+  "temperature": 0.1,
+  "maxTokens": 1000,
+  "contextTurns": 15,
+  "userSystemPrompt": "",
+  "openAIProxyBaseUrl": "",
+  "openAIEmbeddingProxyBaseUrl": "",
+  "stream": true,
+  "defaultSaveFolder": "copilot-conversations",
+  "defaultConversationTag": "copilot-conversation",
+  "autosaveChat": false,
+  "defaultOpenArea": "view",
+  "customPromptsFolder": "copilot-custom-prompts",
+  "indexVaultToVectorStore": "ON MODE SWITCH",
+  "qaExclusions": "",
+  "qaInclusions": "",
+  "chatNoteContextPath": "",
+  "chatNoteContextTags": [],
+  "enableIndexSync": true,
+  "debug": false,
+  "enableEncryption": false,
+  "maxSourceChunks": 3,
+  "groqApiKey": "",
+  "activeModels": [
+    {
+      "name": "copilot-plus-flash",
+      "provider": "copilot-plus",
+      "enabled": false,
+      "isBuiltIn": true,
+      "core": true,
+      "plusExclusive": true,
+      "capabilities": [
+        "vision"
+      ]
+    },
+    {
+      "name": "gpt-4.1",
+      "provider": "openai",
+      "enabled": false,
+      "isBuiltIn": true,
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
+    },
+    {
+      "name": "gpt-4.1-mini",
+      "provider": "openai",
+      "enabled": false,
+      "isBuiltIn": true,
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
+    },
+    {
+      "name": "gpt-4.1-nano",
+      "provider": "openai",
+      "enabled": false,
+      "isBuiltIn": true,
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
+    },
+    {
+      "name": "o4-mini",
+      "provider": "openai",
+      "enabled": false,
+      "isBuiltIn": true,
+      "core": true,
+      "capabilities": [
+        "reasoning"
+      ]
+    },
+    {
+      "name": "claude-3-5-sonnet-latest",
+      "provider": "anthropic",
+      "enabled": false,
+      "isBuiltIn": true,
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
+    },
+    {
+      "name": "claude-3-5-haiku-latest",
+      "provider": "anthropic",
+      "enabled": false,
+      "isBuiltIn": true
+    },
+    {
+      "name": "grok-3-beta",
+      "provider": "xai",
+      "enabled": false,
+      "isBuiltIn": true
+    },
+    {
+      "name": "grok-3-mini-beta",
+      "provider": "xai",
+      "enabled": false,
+      "isBuiltIn": true
+    },
+    {
+      "name": "command-r",
+      "provider": "cohereai",
+      "enabled": false,
+      "isBuiltIn": true
+    },
+    {
+      "name": "command-r-plus",
+      "provider": "cohereai",
+      "enabled": false,
+      "isBuiltIn": true
+    },
+    {
+      "name": "gemini-2.0-pro-exp",
+      "provider": "google",
+      "enabled": false,
+      "isBuiltIn": true,
+      "capabilities": [
+        "vision"
+      ]
+    },
+    {
+      "name": "gemini-2.0-flash",
+      "provider": "google",
+      "enabled": false,
+      "isBuiltIn": true,
+      "capabilities": [
+        "vision"
+      ]
+    },
+    {
+      "name": "azure-openai",
+      "provider": "azure openai",
+      "enabled": false,
+      "isBuiltIn": true
+    },
+    {
+      "name": "deepseek-chat",
+      "provider": "deepseek",
+      "enabled": false,
+      "isBuiltIn": true
+    },
+    {
+      "name": "deepseek-reasoner",
+      "provider": "deepseek",
+      "enabled": false,
+      "isBuiltIn": true,
+      "capabilities": [
+        "reasoning"
+      ]
+    },
+    {
+      "name": "gemma3:27b-it-qat",
+      "provider": "ollama",
+      "enabled": true,
+      "isBuiltIn": false,
+      "baseUrl": "",
+      "apiKey": "",
+      "isEmbeddingModel": false,
+      "capabilities": [],
+      "stream": true,
+      "displayName": "gemma3:27b-it-qat",
+      "enableCors": true
+    }
+  ],
+  "activeEmbeddingModels": [
+    {
+      "name": "copilot-plus-small",
+      "provider": "copilot-plus",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true,
+      "core": true,
+      "plusExclusive": true
+    },
+    {
+      "name": "copilot-plus-large",
+      "provider": "copilot-plus-jina",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true,
+      "core": true,
+      "plusExclusive": true,
+      "believerExclusive": true,
+      "dimensions": 1024
+    },
+    {
+      "name": "copilot-plus-multilingual",
+      "provider": "copilot-plus-jina",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true,
+      "core": true,
+      "plusExclusive": true,
+      "dimensions": 512
+    },
+    {
+      "name": "text-embedding-3-small",
+      "provider": "openai",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true,
+      "core": true
+    },
+    {
+      "name": "text-embedding-3-large",
+      "provider": "openai",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true
+    },
+    {
+      "name": "embed-multilingual-light-v3.0",
+      "provider": "cohereai",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true
+    },
+    {
+      "name": "text-embedding-004",
+      "provider": "google",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true
+    },
+    {
+      "name": "azure-openai",
+      "provider": "azure openai",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true
+    }
+  ],
+  "embeddingRequestsPerMin": 90,
+  "embeddingBatchSize": 16,
+  "disableIndexOnMobile": true,
+  "showSuggestedPrompts": true,
+  "showRelevantNotes": true,
+  "numPartitions": 1,
+  "promptUsageTimestamps": {},
+  "defaultConversationNoteName": "{$topic}@{$date}_{$time}",
+  "inlineEditCommands": [
+    {
+      "name": "Correggi la grammatica e lo spelling",
+      "prompt": "Correggi la grammatica e lo spelling di {}. Conserva tutta la formattazione, le interlineazioni e i caratteri speciali. Non aggiungere o rimuovere alcun contenuto. Restituisci solo il testo corretto.",
+      "showInContextMenu": true,
+      "modelKey": "gemma3:27b-it-qat|ollama"
+    },
+    {
+      "name": "Approfondisci",
+      "prompt": "Spiegami in modo approfondito {}.\nLa spiegazione dovrebbe riuscire a farmi capire bene questo argomento, mentre non ti risparmi dal dare più dettagli possibili.\nL'importante è non spiegare altri argomenti se non quelli che ti ho inviato, se non richiamarli nelle spiegazioni.\nOgni riga della tua risposta deve iniziare con `> >`. Tra un paragrafo e l'altro, inserisci una riga che contiene solo `> >`.\nLa risposta deve inziare con:\n>\n> > [!tip]- AI-splaining\n> > <paragrafo>\n> >\n> > <paragrafo>",
+      "showInContextMenu": true,
+      "modelKey": "gemma3:27b-it-qat|ollama"
+    },
+    {
+      "name": "Riassumi (BP)",
+      "prompt": "Crea un riassunto a punti di {}. Ogni punto dovrebbe catturare un'idea chiave. Non aggiungere o rimuovere contenuti, restituisci solo il riassunto a punti.",
+      "showInContextMenu": true,
+      "modelKey": "gemma3:27b-it-qat|ollama"
+    },
+    {
+      "name": "Semplifica",
+      "prompt": "Semplifica {} per un livello di lettura della 6° elementare (età 11-12). Usa frasi semplici, parole comuni e spiegazioni chiare. Mantieni i concetti principali originali. Restituisci solo il testo semplificato.",
+      "showInContextMenu": true,
+      "modelKey": "gemma3:27b-it-qat|ollama"
+    },
+    {
+      "name": "Emojify",
+      "prompt": "Aggiungi emoji pertinenti per migliorare {}. Segui queste regole:\n    1. Inserisci emoji ai naturali punti di interruzione del testo\n    2. Non mettere mai due emoji a fianco l'una dell'altra\n    3. Mantieni il testo originale invariato\n    4. Scegli emoji che corrispondano al contesto e al tono",
+      "showInContextMenu": true,
+      "modelKey": "gemma3:27b-it-qat|ollama"
+    },
+    {
+      "name": "Translate to Chinese",
+      "prompt": "Translate {} into Chinese:\n    1. Preserve the meaning and tone\n    2. Maintain appropriate cultural context\n    3. Keep formatting and structure\n    Return only the translated text.",
+      "showInContextMenu": false
+    },
+    {
+      "name": "Make shorter",
+      "prompt": "Reduce {} to half its length while preserving these elements:\n    1. Main ideas and key points\n    2. Essential details\n    3. Original tone and style\n    Return only the shortened text.",
+      "showInContextMenu": false
+    },
+    {
+      "name": "Make longer",
+      "prompt": "Expand {} to twice its length by:\n    1. Adding relevant details and examples\n    2. Elaborating on key points\n    3. Maintaining the original tone and style\n    Return only the expanded text.",
+      "showInContextMenu": false
+    },
+    {
+      "name": "Generate table of contents",
+      "prompt": "Generate a hierarchical table of contents for {}. Use appropriate heading levels (H1, H2, H3, etc.). Include page numbers if present. Return only the table of contents.",
+      "showInContextMenu": false
+    },
+    {
+      "name": "Generate glossary",
+      "prompt": "Create a glossary of important terms, concepts, and phrases from {}. Format each entry as \"Term: Definition\". Sort entries alphabetically. Return only the glossary.",
+      "showInContextMenu": false
+    },
+    {
+      "name": "Remove URLs",
+      "prompt": "Remove all URLs from {}. Preserve all other content and formatting. URLs may be in various formats (http, https, www). Return only the text with URLs removed.",
+      "showInContextMenu": false
+    },
+    {
+      "name": "Rewrite as tweet",
+      "prompt": "Rewrite {} as a single tweet with these requirements:\n    1. Maximum 280 characters\n    2. Use concise, impactful language\n    3. Maintain the core message\n    Return only the tweet text.",
+      "showInContextMenu": false
+    },
+    {
+      "name": "Rewrite as tweet thread",
+      "prompt": "Convert {} into a Twitter thread following these rules:\n    1. Each tweet must be under 240 characters\n    2. Start with \"THREAD START\" on its own line\n    3. Separate tweets with \"\n\n---\n\n\"\n    4. End with \"THREAD END\" on its own line\n    5. Make content engaging and clear\n    Return only the formatted thread.",
+      "showInContextMenu": false
+    },
+    {
+      "name": "Explain like I am 5",
+      "prompt": "Explain {} in simple terms that a 5-year-old would understand:\n    1. Use basic vocabulary\n    2. Include simple analogies\n    3. Break down complex concepts\n    Return only the simplified explanation.",
+      "showInContextMenu": false
+    },
+    {
+      "name": "Rewrite as press release",
+      "prompt": "Transform {} into a professional press release:\n    1. Use formal, journalistic style\n    2. Include headline and dateline\n    3. Follow inverted pyramid structure\n    Return only the press release format.",
+      "showInContextMenu": false
+    }
+  ],
+  "lastDismissedVersion": null,
+  "passMarkdownImages": true,
+  "enableCustomPromptTemplating": true
+}
