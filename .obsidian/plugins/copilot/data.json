@@ -265,6 +265,12 @@
   "defaultConversationNoteName": "{$topic}@{$date}_{$time}",
   "inlineEditCommands": [
     {
+      "name": "Formalizza",
+      "prompt": "Formalizza il seguente testo:\n\n{}\n\nLa tua risposta deve contenere solamente il testo formalizzato, senza alcuna altra frase.",
+      "showInContextMenu": true,
+      "modelKey": "gemma3:27b-it-qat|ollama"
+    },
+    {
       "name": "Correggi la grammatica e lo spelling",
       "prompt": "Correggi la grammatica e lo spelling di {}. Conserva tutta la formattazione, le interlineazioni e i caratteri speciali. Non aggiungere o rimuovere alcun contenuto. Restituisci solo il testo corretto.",
       "showInContextMenu": true,

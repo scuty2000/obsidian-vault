@@ -1071,4 +1071,321 @@ a \mid b*c
 \end{cases}
 $$
 Più generalmente, se $\alpha, \beta \in A$, $a \mid b$ e $a \mid c \implies a \mid \alpha*b+\beta*c$
-_// riprendere da slide 5 settimana 3_
+
+## Elementi Irriducibili e Primi
+
+> [!info] Definizione di Elemento Irriducibile
+> 
+> Un elemento $a \in A/A^{x}$ è detto __irriducibile__ se:
+> $$
+> \forall b,c \in A \text{ vale che } a=bc \implies b \in A^x \lor c \in A^x
+> $$
+> 
+> > [!warning] Attenzione!
+> > L'or nella definizione è __esclusivo__, poiché se sia $b$ che $c$ fossero invertibili, allora lo sarebbe anche $a$ e verrebbe meno la premessa per cui $a$ non lo è.
+> 
+> > [!tip]- Spiegazione intuitiva
+> > In termini più semplici, un elemento irriducibile è un elemento che non può essere "fattorizzato" ulteriormente in elementi più piccoli (prodotto di due elemento non invertibili) all'interno dell'anello in cui stiamo lavorando. È come un "mattone" fondamentale dell'anello.
+> > 
+> > Qualche esempio su $\mathbb{Z}$:
+> > - $2,3,5,7,11,\dots$ sono irriducibili perché possono essere divisi solo per $1$ e per se stessi;
+> > - $-2,-3,-5,\dots$ sono anche irriducibili, poiché $-2 = (-1)*2$, ma $-1$ è invertibile;
+> > - $1,-1$ non sono irriducibili;
+> > - $4$ non è irriducibile perché $4 = 2*2$
+> > - $6$ non è irriducibile perché $6=2*3$
+
+> [!info] Definizione di Numero Primo
+> 
+> Un elemento $a \in A/A^{x}$ è detto __primo__ se:
+> $$
+> \forall b,c \in A \text{ vale che } a \mid bc \implies a \mid b \lor a \mid c
+> $$
+
+> [!info] Lemma
+> 
+> $$
+> p \in \mathbb{Z} \text{ primo} \iff \text{irriducibile}
+> $$
+> 
+> > [!tip] Spiegazione
+> > In poche parole, questo lemma ci dice che i numeri primi ed i numeri riducibili coincidono in $\mathbb{Z}$, ossia i numeri irriducibili in questo anello sono i numeri primi ed il loro opposto.
+
+## Valore Assoluto
+
+> [!info] Definizione di Valore Assoluto
+> 
+> $$
+> \mathbb{Z} \xrightarrow{|·|} \mathbb{N}
+> $$
+> 
+> $$ \text{Dato } a \in \mathbb{Z} \begin{cases}
+> a = 0 \implies |a| = 0 \\
+> a \not= 0 \implies |a| = \{ a, -a \} \cap \mathbb{N}
+> \end{cases}$$
+
+## Divisione Euclidea
+
+> [!info] Definizione di Divisione Euclidea
+> 
+> Dati $a,n \in \mathbb{Z}$, allora esistono unicamente determinati:
+> $$
+> q \in \mathbb{Z}, r \in \{ 0,\dots,|n|-1 \} \text{ t.c. } a = nq+r
+> $$
+> 
+> > [!warning] Attenzione
+> > - Importante notare che $0 \leq r < |n|$
+> > - n è il divisore, q il quoziente, r il resto.
+
+## Congruenza
+
+> [!info] Definizione di Congruenza
+> 
+> $$
+> a \equiv b \text{ (mod. n) }\begin{cases}
+> \iff n \mid a-b \text{ (quindi b è il resto di } \frac{a}{b} \text{)} \\
+> \iff \exists q \in \mathbb{Z} \text{ t.c. } a-b = qn
+\end{cases} 
+> $$
+
+La congruenza modulo n è una __relazione d'equivalenza__:
+1. __riflessiva__: $a \equiv_{n} a$, $n \mid a-a$ è vero poiché $\forall x \in \mathbb{Z}/\{ 0 \} \text{ vale che } x \mid 0$
+2. **simmetrica**: $a \equiv_{n} b \implies b \equiv_{n} a$, ovvero $n \mid a-b \implies n \mid b-a$
+3. **transitiva**: $a \equiv_{n}b \text{ e } b \equiv_{n} c \iff n \mid b-a \text{ e } n \mid c-b \implies n \mid c-b+c-a \implies n \mid c-a \iff c \equiv_{n} a \iff a \equiv_{n} c$
+Facciamo alcuni esempi:
+
+Congruenza modulo 2:
+$$
+\underbrace{2\mathbb{Z}}_{[0] \text{(numeri pari)}} \sqcup \underbrace{2\mathbb{Z} + 1}_{[1] \text{(numeri dispari)}}
+$$
+$$
+\mathbb{Z}\text{ }/\equiv_{2} \text{ }= \{ 2\mathbb{Z}, 2\mathbb{Z}+1 \}
+$$
+```tikz
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \foreach \n in {-3,-2,-1,0,1,2,3} {
+    \node (\n) at (\n,0) [font=\Large] {\n};
+    \ifodd\n
+      \fill[blue] (\n, -0.5) circle (0.10cm);
+    \else
+      \fill[red] (\n, -0.5) circle (0.10cm);
+    \fi
+  }
+\end{tikzpicture}
+\end{document}
+```
+
+Congruenza modulo 3:
+$$
+\underbrace{3\mathbb{Z}}_{[0]} \sqcup \underbrace{3\mathbb{Z}+1}_{[1]} \sqcup \underbrace{3\mathbb{Z}}_{[2]}
+$$
+$$
+\mathbb{Z}\text{ }/\equiv_{3} \text{ } = \{ 3\mathbb{Z}, 3\mathbb{Z}+1, 3\mathbb{Z}+2 \}
+$$
+```tikz
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \foreach \n in {-3,-2,-1,0,1,2,3} {
+    \node (\n) at (\n,0) [font=\Large] {\n};
+    \pgfmathparse{abs(\n)}
+    \let\absn\pgfmathresult
+    \pgfmathtruncatemacro{\resto}{mod(\absn,3)}
+    \ifnum\resto=0
+      \def\col{red}
+    \else\ifnum\resto=1
+      \def\col{blue}
+    \else
+      \def\col{green}
+    \fi\fi
+    \fill[\col] (\n, -0.5) circle (0.10cm);
+  }
+\end{tikzpicture}
+\end{document}
+```
+
+Ora concentriamoci sull'anello $\mathbb{Z}/n\mathbb{Z}$.
+
+$\mathbb{Z}/n\mathbb{Z} = \mathbb{Z}/\equiv_{n}$ con $n > 0$ ed è l'insieme quoziente di $\mathbb{Z}$ sulla congruenza modulo n.
+
+$[a] \in \mathbb{Z}/n\mathbb{Z} = \{ x: x\equiv a \text{ mod. }n \} = a +n\mathbb{Z}$ ovvero tutti gli elemento che danno resto $a$ quando dividi per $n$. Gli elementi di $\mathbb{Z}/n\mathbb{Z}$ sono le classi di equivalenza mod. $n$.
+
+Le operazioni $+,*,-$ sono compatibili con $\equiv_{n}$
+
+1. Compatibilità con opposto: $\forall a, a' \in \mathbb{Z} \text{ vale che } a \equiv_{n} a' \iff -a \equiv_{n} -a'$
+2. Compatibilità con somma: $\forall a,a',b,b' \in \mathbb{Z} \text{ vale che } a \equiv_{n} a',b \equiv_{n}b' \implies a+b\equiv_{n}a'+b'$
+3. Compatibilità con prodotto: $\forall a,a',b,b' \in \mathbb{Z} \text{ vale che } a \equiv_{n} a',b \equiv_{n}b' \implies ab \equiv_{n} a'b'$
+
+Operatori:
+- Opposto: $-[a] := [-a]$
+- Somma: $[a]+[b] = [a+b]$
+- Prodotto: $[a]*[b] = [a*b]$
+
+Quindi $(\mathbb{Z}/n\mathbb{Z}, +, - *, [0], [1])$ è un **anello commutativo unitario**.
+
+# Massimo Comun Divisore
+
+> [!info] Definizione di Massimo Comun Divisore
+> $$
+> \text{Data } (a,b) \in \mathbb{Z}\times \mathbb{Z} \text{ con } (a,b) \not = (0,0)
+> $$
+> $d \in \mathbb{N}$ è $MCD$ di $a$ e $b$ se:
+> 1. $d \mid a$ e $d \mid b$
+> 2. se $\exists d' \in \mathbb{N} \text{ t.c. } d' \mid a \text{ e } d' \mid b, \text{ allora } d' \mid d$ ossia ogni dividore di $a$ e $b$ divide anche $d$
+> 
+> Se $d$ soddisfa 1. e 2. allora è **unico**
+
+> [!info] Definizione di Coprimi (o primi tra loro)
+> Se $MCD(a,b) = 1$, si dice che $a$ e $b$ sono **coprimi** o primi tra loro.
+
+> [!info] Lemma
+> Dato $\delta =MDC(a,b) \text{ vale che } a\mathbb{Z}+b\mathbb{Z}=\delta \mathbb{Z} \text{ con } \delta >0, (a,b)\not = (0,0)$
+
+### Minimo Comune Multiplo
+
+> [!info] Definizione di Minimo Comune Multiplo (mcm)
+> 
+> Dati $m_{1},\dots m_{k} \in \mathbb{Z}/\{ 0 \}$, il **minimo comune multiplo** (mcm) di $m_{1},\dots,m_{k}$ è l'unico intero $m$ t.c.
+> 1. $m_{1},\dots,m_{k} \mid m$
+> 2. se $\exists m' \text{ t.c. } m_{1},\dots,m_{k} \mid m', \text{ allora } m\mid m'$
+
+Notiamo inoltre che l'insieme $m\mathbb{Z}$ (insieme dei multipli interi di $m$) è dato dall'intersezione degli insiemi dei multipli interi degli $m_{1},\dots,m_{k}$:
+$$
+m\mathbb{Z} = \{ m_{1}\mathbb{Z} \cap m_{2}\mathbb{Z} \cap \dots \cap m_{k}\mathbb{Z} \}
+$$
+Inoltre, notiamo che $mcm(a,b) = \frac{ab}{MCD(a,b)}$
+
+## Algoritmo di Euclide x MCD
+
+Dati $a,b > 0$, mi permette di trovare $\delta = MCD(a,b)$. Comincio con la divisione euclidea $a$ diviso $b$ _(funziona sia con $a/b$ che con $b/a$, ma conviene fare $a/b$ con $a>b$)_
+
+```tikz
+\usepackage{amsmath}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+  \node (n0) at (0,0) [font=\Large] {$a = q_0 b + r_0$};
+  \node (n1) at (4.5,0) [font=\Large] {( $0 \le r_0 < b$)};
+  \node (n2) at (0,-1.5) [font=\Large] {$b = q_1 r_0 + r_1$};
+  \node (n3) at (4.5,-1.5) [font=\Large] {( $0 \le r_1 < r_0$)};
+  \node (n4) at (0,-3) [font=\Large] {$r_0 = q_2 r_1 + r_2$};
+  \node (n5) at (4.5,-3) [font=\Large] {( $0 \le r_2 < r_1$)};
+  \node (n6) at (0,-4.5) [font=\Large] {$\vdots$};
+  \node (n7) at (0,-6) [font=\Large] {$r_{n-2} = q_n r_{n-1} + r_n$};
+  \node (n8) at (4.5,-6) [font=\Large] {( $0 \le r_n < r_{n-1}$)};
+  \node (n9) at (0,-7.5) [font=\Large] {$r_{n-1} = q_{n+1} r_n + 0$};
+
+  \draw[->] (n0) -- (n2);
+  \draw[->] (n2) -- (n4);
+  \draw[->] (n4) -- (n6);
+  \draw[->] (n6) -- (n7);
+  \draw[->] (n7) -- (n9);
+\end{tikzpicture}
+\end{document}
+```
+Qui l'ultimo resto diverso da $0$, ossia $r_n$ è il nostro $MCD$.
+
+Facciamo un piccolo esempio:
+$$
+\begin{align}
+& \text{Dati } a = 3522, b = 321 \\ & \\
+& 3522 = 10*321 + 312 \\
+& 321 = 1*312 + 9 \\
+& 312 = 34*9 + 6 \\
+& 9 = 1*6 + 3 \\
+& 6 = 2*3 + 0 \\ & \\
+& MCD(3522,321) = 3
+\end{align}
+$$
+## Identità di Bézout
+
+> [!info] Lemma
+>Dati $a,b \in \mathbb{Z}$ con $(a,b) \not = (0,0)$ e con $\delta = MCD(a,b)$ allora esistono due interi $u,v \text{ t.c. } au+bv = \delta$
+>> [!warning] Nota Bene
+>> $u,v$ non sono unicamente determinati.
+
+Come possiamo calcolare $u$ e $v$? Prendiamo come esempio l'algoritmo precedente e vediamo due metodi.
+
+### Metodo bottom-up (Pellarin)
+
+Scriviamo l'ultimo passo dell'algoritmo (quello che contiene il $MCD$ come resto) in funzione del resto, e sostituiamo i resti "risalendo":
+
+$$
+\begin{align}
+& 3 = 9-1*6 \\
+& 3 = 9-1*(312-34*9) \implies 3 = -312+35*9 \\
+& 3 = -312+35*(321-312) \implies 3 = 35*321 - 36*312 \\
+& 3 = 35*321 - 36*(3522- 321*10) \implies 3 = 395*321 - 36*3522 \\ & \\
+& \text{ Abbiamo trovato } u = 395, v=-36
+\end{align}
+$$
+### Metodo top-down (tutor)
+
+Partendo dal primo passo dell'algoritmo, li riscrivo tutti in funzione del resto sostituendo dove possibile; in più, per evitare confusione, scrivo $a$ e $b$ al posto dei due numeri iniziali:
+
+$$
+\begin{align}
+& a = 3522, b = 321 \\
+& 312 = a - 10b \\
+& 9 = 321 - 1*312 \implies 9 = 11b - a \\
+& 6 = 312 - 34*9 \implies 6 = a-10b -34*(11b-a) \implies 6 = 35a -384b \\
+& 3 = 9 - 6 \implies 3 = 11b-a +384b - 35a \implies 3 = 395b - 36a \\ & \\
+& \text{Abbiamo trovato } u = 395, v = -36
+\end{align}
+$$
+
+## Lemma di Gauss
+
+> [!info] Lemma di Gauss
+> 
+> Se $a,b \in \mathbb{Z}^*$ e $c \in \mathbb{Z}$, e se $MCD(a,b) = 1$, allora $a \mid bc \implies a \mid c$
+
+> [!info] Lemma
+> Dato $p \in \mathbb{Z}$ con $p \not\in \{ 0,-1,1 \}$ vale
+> $$
+> p \text{ irriducibile } \implies p \text{ primo}
+> $$
+
+## Elementi invertibili di $\mathbb{Z}/n\mathbb{Z}$
+
+Definiamo $(\mathbb{Z}/n\mathbb{Z})^x = \{ [a]: \exists[b] \text{ con } [a]*[b] = [1] \}$
+
+Abbiamo precedentemente visto che $[a]*[b] = [ab]$, quindi:
+$(mod. n) [ab] = 1 \iff n \mid ab-1 \iff \exists k \in \mathbb{Z} \text{ t.c. } ab-1=kn \iff ab-kn = 1$ e quest'ultima è un'identità di Bézout, quindi $MCD(a,b) = 1$.
+Quindi $(\mathbb{Z}/n\mathbb{Z})^x = \{ [a]: a \in \mathbb{Z}, MCD(a,n) = 1 \}$, ovvero che gli invertibili in questo insieme sono le classi dei coprimi a $n$.
+
+Esiste quindi un'applicazione biiettiva che porta $r \rightarrow [r]$:
+$$
+\{ r \in \{ 0,\dots,n-1 \} \text{ t.c. } MCD(r,n) = 1 \} \longrightarrow (\mathbb{Z}/n\mathbb{Z})^x
+$$
+Esempio:
+$$
+\begin{align}
+& \mathbb{Z}/_{12}\mathbb{Z} = \{ [0],[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11] \} \\
+& (\mathbb{Z}/_{12}\mathbb{Z})^x = \{ [1],[5],[7],[11] \}
+\end{align}
+$$
+Se invece $n = p \text{ primo}$, allora osserviamo che:
+$$
+(\mathbb{Z}/_{p}\mathbb{Z})^x = \{ [r]: 1 \leq r \leq p-1 \}
+$$
+ovvero che $\forall [r] \in (\mathbb{Z}/_{p}\mathbb{Z})/\{ 0 \}, [r] \text{ è invertibile}$.
+
+# Campi
+
+> [!info] Definizione di Campo
+> 
+> Sia $A$ un anello commutativo unitario. Se per ogni $a \in A \setminus \{0\}$ vale che $a \in A^\times$, allora $A$ è un campo.
+
+## Piccolo Teorema di Fermat
+
+> [!info] Teorema di Fermat
+> 
+> Sia $p$ un numero primo e $n$ un intero. Allora, $n^p \equiv n \pmod{p}$.
+Inoltre:
+> - Se $[n] \neq [0]$ (ovvero se $[n] \in \mathbb{F}_{p}$), allora $[n]$ è invertibile e possiede inverso $[x]$.
+> - Si ha $[n] = [n]^p$, e quindi $[x][n]^p = 1$.
+
