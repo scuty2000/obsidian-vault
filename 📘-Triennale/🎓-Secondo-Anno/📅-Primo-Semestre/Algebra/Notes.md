@@ -1380,7 +1380,7 @@ ovvero che $\forall [r] \in (\mathbb{Z}/_{p}\mathbb{Z})/\{ 0 \}, [r] \text{ è i
 > 
 > Sia $A$ un anello commutativo unitario. Se per ogni $a \in A \setminus \{0\}$ vale che $a \in A^\times$, allora $A$ è un campo.
 
-## Piccolo Teorema di Fermat
+# Piccolo Teorema di Fermat
 
 > [!info] Teorema di Fermat
 > 
@@ -1389,3 +1389,213 @@ Inoltre:
 > - Se $[n] \neq [0]$ (ovvero se $[n] \in \mathbb{F}_{p}$), allora $[n]$ è invertibile e possiede inverso $[x]$.
 > - Si ha $[n] = [n]^p$, e quindi $[x][n]^p = 1$.
 
+# Fibonacci
+
+> [!info] Definizione di successione di Fibonacci
+> 
+> La successione di Fibonacci, denotata con $(F_n)$ per $n \geq 0$, è definita ricorsivamente come segue:
+>$$F_0 = 0, \quad F_1 = 1, \quad F_n = F_{n-1} + F_{n-2} \text{ per } n \geq 2.$$
+>
+> > [!warning] Alcune proprietà
+> > Si osservi che $MCD(F_m, F_n) = F_{MCD(m,n)}$, e in particolare $MCD(F_m, F_{m+1}) = F_1 = 1$.
+>
+> > [!tip]- AI-splaining
+> > La successione di Fibonacci è una sequenza di numeri interi in cui ogni numero è la somma dei due numeri precedenti. La definizione formale che ti è stata fornita descrive questo comportamento in modo preciso e ricorsivo. Analizziamo ogni componente di questa definizione.
+> >
+> > La notazione $(F_n)$ indica che stiamo considerando una sequenza di numeri, dove $F_n$ rappresenta l'n-esimo termine della sequenza. L'indice $n$ è un numero intero maggiore o uguale a 0, il che significa che la sequenza inizia con $n=0$ e continua all'infinito.
+> >
+> > La definizione ricorsiva è composta da tre parti: i casi base e la relazione di ricorrenza. I casi base sono $F_0 = 0$ e $F_1 = 1$. Questi sono i primi due termini della sequenza e sono definiti direttamente, senza fare riferimento ad altri termini. Sono fondamentali perché forniscono il punto di partenza per calcolare tutti gli altri termini.
+> >
+> > La relazione di ricorrenza è $F_n = F_{n-1} + F_{n-2}$ per $n \geq 2$. Questa equazione afferma che l'n-esimo termine della sequenza è uguale alla somma dell'(n-1)-esimo termine e dell'(n-2)-esimo termine. In altre parole, per calcolare un termine della sequenza (a partire dal terzo), è necessario sommare i due termini precedenti. Ad esempio, $F_2 = F_1 + F_0 = 1 + 0 = 1$, $F_3 = F_2 + F_1 = 1 + 1 = 2$, $F_4 = F_3 + F_2 = 2 + 1 = 3$, e così via.
+> >
+> > La seconda parte della definizione che ti è stata fornita, $MCD(F_m, F_n) = F_{MCD(m,n)}$, è un risultato importante che lega la successione di Fibonacci alla teoria dei numeri, in particolare al massimo comun divisore (MCD).  Il MCD di due numeri interi è il più grande numero intero che divide entrambi i numeri senza lasciare resto. Questa proprietà afferma che il massimo comun divisore di due termini qualsiasi della successione di Fibonacci ($F_m$ e $F_n$) è uguale al termine della successione di Fibonacci il cui indice è uguale al massimo comun divisore degli indici dei due termini originali ($m$ e $n$).
+> >
+> > Ad esempio, consideriamo $m=4$ e $n=6$. Abbiamo $F_4 = 3$ e $F_6 = 8$. Il MCD di 3 e 8 è 1.  Ora calcoliamo $MCD(4,6) = 2$.  Infatti, $F_2 = 1$, che conferma la proprietà.
+> >
+> > Il caso particolare $MCD(F_m, F_{m+1}) = F_1 = 1$ è una conseguenza diretta della proprietà precedente.  Infatti, se consideriamo $n = m+1$, allora $MCD(m, m+1) = 1$ per qualsiasi intero $m$. Questo perché due numeri consecutivi sono sempre coprimi (cioè, non hanno fattori comuni diversi da 1). Di conseguenza, $MCD(F_m, F_{m+1}) = F_{MCD(m, m+1)} = F_1 = 1$. Questo significa che qualsiasi coppia di termini consecutivi nella successione di Fibonacci è sempre coprima.
+
+# Teorema Fondamentale dell'Aritmetica
+
+> [!info] Definizione:
+> $\forall a \in \mathbb{Z}^*$:
+> 1. L'insieme $\mathcal{I} = \{ p \text{ primo }: p \mid a \}$ è finito.
+> 2. $a = (\pm 1) \prod_{p \text{ primo }} p^{V_{p}(a)}$, dove $V_{p}(a) \in \mathbb{N}$ sono univocamente determinati.
+>
+> > [!warning] Osservazione:
+> > Si sa che $\mathbb{P} = \{ p \in \mathbb{N}: p \text{ primo} \}$ è infinito.
+> > Siccome $\forall a \in \mathbb{Z}, \mathcal{I}_{a}$ è finito, $\prod_{p} p^{V_{p}(a)} = \prod_{p \in \mathcal{I}} p^{V_{p}(a)} \cdot \prod_{p\not \in \mathcal{I}} p^{V_{p}(a)}$ ed in quest'ultimo $V_{p}(a)$ sarà $0$ per $p\not \in \mathcal{I}$.
+> > Quindi è possibile dividere i numeri primi in divisori di $a$ e non-divisori di $a$ e splittare la produttoria.
+
+Altra osservazione:
+
+Dati $a \prod_{p} p^{V_{p}(a)}$ e $b \prod_{p} p^{V_{p}(b)}$:
+- $a*b = \prod_{p} p^{V_{p}(a)} * \prod_{p} p^{V_{p}(b)} =\prod_{p} p^{V_{p}(a) + V_{p}(b)}$
+- $p^{V_{p}(a)} * p^{V_{p}(a)} = p^{V_{p}(a) + V_{p}(b)}$
+- $V_{p}(ab) = V_{p}(a) + V_{p}(b)$
+
+> [!info] Enunciato
+> 
+> $\forall a > 0, \exists$ un numero finito di primi distinti $p_{1},\dots,p_{r} \text{ t.c. } a= p_{1}^\alpha * \dots * p_{r}^{\alpha r}$ e questa fattorizzazione è unicamente determianta.
+
+# Divisori di Zero
+
+> [!info] Definizione Di Divisore di Zero
+> 
+> Dato $A$ anello,l $a \in A$ si dice __divisore__ di zero se $$\exists b \in A\setminus{\{ 0 \}} \text{ t.c. } ab = 0_{A}$$
+
+In $A$ qualsiasi (tranne se $1_{A} = 0_{A}, A= \{ 0 \}$) $0_{A}$ è divisore di $0$.
+
+Nei _campi_ invece (es. $A = \mathbb{Q}, \mathbb{R}, \mathbb{C}, \mathbb{F}_{p}$), ossia quando $\forall a \in K \setminus{\{ 0 \}}, a \text{ è invertibile}$, ovvero $K^x = K \setminus{\{ 0 \}}$, l'unico divisore di zero in $K$ è $0_{K}$.
+
+In $\mathbb{Z}$ se $a$ è divisore di $0$, allora $a=0$ (anche se $\mathbb{Z}$ non è un campo.)
+
+# Dominio
+
+> [!info] Definizione di Dominio
+> 
+> Dato $A$ anello, $A \not = \{  0 \}$, si dice che $A$ è un **dominio** se l'unico divisore di zero in $A$ è $0_{A}$.
+
+Ogni campo è un dominio, ed anche $Z$ lo è.
+
+# Legge di cancellazione
+
+> [!info] Lemma legge di cancellazione
+> 
+> Sia $a \in A$ un elemento non divisore di zero. Allora, per ogni $b, c \in A$, se $ab = ac$, si ha $b = c$.
+> 
+> > [!warning] Osservazione
+> > Questo implica la legge di cancellazione in $\mathbb{Z}$ (dominio), quando $a\not = 0$, poiché $0$ è l'unico divisore di zero in $\mathbb{Z}$
+
+# Equazioni in $A$
+
+Ora vediamo come risolvere le equazioni in un anello $A$, ed in particolare $A=\mathbb{Z}, A=\mathbb{Z}/n\mathbb{Z}$.
+$$aX=b, a,b \in A$$
+dove $X$ è _indeterminata_, ossia può essere sia un valore che un insieme. Quando invece è scritta in minuscolo ($x$) allora si tratta certamente di un valore.
+
+- in $A=\mathbb{Z}$ una soluzione di $aX=b \text{ esiste } \iff a \mid b$ 
+	- Infatti se l'insieme delle soluzioni $\not=\emptyset$  e se $x$ è la soluzione, si ha $ax=b \iff a\mid b$
+	- Se invece $a \mid b \implies \exists k \in \mathbb{Z} \text{ t.c. } b = ak$ e prendo $k=x$
+- In $A=\mathbb{Z}/n\mathbb{Z}, n \in \mathbb{N}$
+	- Nel caso in cui $A$ è un anello qualsiasi e $a \in A^x$ di inverso $a^{-1}$, posso moltiplicare termine a termine per $a^{-1}$ $$a^{-1}*aX = a^{-1}*b$$ e quindi l'equazione ha l'unica soluzione $x = a^{-1}b$
+	- Se per esempio $A=K$ campo $$aX=b \text{ con } a \not = 0 \text{ ammette sempre l'unica soluzione } x = a^{-1}b$$
+
+> [!info] Proposizione
+> 
+> L'equazione $aX = b$ con $a, b \in \mathbb{Z}/n\mathbb{Z}$ ammette soluzioni se e solo se $\text{MCD}(\alpha, n) \mid \beta$, dove $a = [\alpha]$, $b = [\beta]$ e $\alpha, \beta \in \mathbb{Z}$.
+> > [!tip]- AI-splaining
+> > L'equazione $aX = b$ con $a, b \in \mathbb{Z}/n\mathbb{Z}$ ammette soluzioni se e solo se $\text{MCD}(\alpha, n) \mid \beta$, dove $a = [\alpha]$, $b = [\beta]$ e $\alpha, \beta \in \mathbb{Z}$. Questa affermazione riguarda la risolubilità di equazioni lineari in un anello quoziente, nello specifico $\mathbb{Z}/n\mathbb{Z}$, l'anello degli interi modulo *n*.  Cerchiamo di scomporre l'affermazione in modo da comprenderla appieno. Innanzitutto, cosa significa che $a, b \in \mathbb{Z}/n\mathbb{Z}$? Significa che *a* e *b* sono classi di equivalenza modulo *n*.  Ricorda che $\mathbb{Z}/n\mathbb{Z}$ è l'insieme dei resti della divisione per *n*.
+> >
+> >
+> > L'equazione $aX = b$ in $\mathbb{Z}/n\mathbb{Z}$ non è la stessa cosa di un'equazione in $\mathbb{Z}$.  Qui, *X* rappresenta una classe di equivalenza, e l'operazione di moltiplicazione è la moltiplicazione modulo *n*.  Quindi, l'equazione significa che esiste una classe di equivalenza *X* tale che il prodotto di *a* e *X* (modulo *n*) sia uguale alla classe di equivalenza *b* (modulo *n*).  Per rendere più concreto, se $a = [2]$ in $\mathbb{Z}/5\mathbb{Z}$ e $b = [3]$ in $\mathbb{Z}/5\mathbb{Z}$, l'equazione $aX = b$ diventa $[2]X = [3]$.  Questo significa che esiste una classe di equivalenza *X* tale che $2X \equiv 3 \pmod{5}$.
+> >
+> >
+> > Ora, vediamo cosa significa $a = [\alpha]$ e $b = [\beta]$ con $\alpha, \beta \in \mathbb{Z}$.  Questo ci dice che *a* e *b* sono rappresentanti delle rispettive classi di equivalenza.  In altre parole, $\alpha$ e $\beta$ sono interi che appartengono alla classe di equivalenza rappresentata da *a* e *b* rispettivamente.  Ad esempio, se $a = [2]$ in $\mathbb{Z}/5\mathbb{Z}$, allora $\alpha$ potrebbe essere 2, 7, -3, o qualsiasi altro intero congruo a 2 modulo 5.  La scelta di $\alpha$ e $\beta$ non è unica, ma è importante capire che rappresentano la stessa classe di equivalenza.
+> >
+> >
+> > Il cuore dell'affermazione è la condizione $\text{MCD}(\alpha, n) \mid \beta$.  $\text{MCD}(\alpha, n)$ rappresenta il Massimo Comune Divisore di $\alpha$ e *n*.  Il simbolo $\mid$ indica la divisibilità.  Quindi, $\text{MCD}(\alpha, n) \mid \beta$ significa che $\beta$ è divisibile per il Massimo Comune Divisore di $\alpha$ e *n*.  Ad esempio, se $\alpha = 6$ e $n = 8$, allora $\text{MCD}(6, 8) = 2$.  La condizione $2 \mid \beta$ significa che $\beta$ deve essere un numero pari.
+> >
+> >
+> > Perché questa condizione è necessaria e sufficiente per la risolubilità dell'equazione?  Consideriamo l'equazione $aX = b$ in $\mathbb{Z}/n\mathbb{Z}$.  Questa equazione è equivalente a trovare un intero *x* tale che $ax \equiv b \pmod{n}$.  Questo significa che esiste un intero *k* tale che $ax - b = nk$.  Riscrivendo l'equazione, otteniamo $ax - nk = b$.  Possiamo riscrivere questa equazione come $aX = b$ dove $X = x$ e $n$ è un intero.
+> >
+> >
+> > Ora, consideriamo il $\text{MCD}(\alpha, n) = d$.  Questo significa che $d$ divide sia $\alpha$ che *n*.  Quindi, possiamo scrivere $\alpha = d\alpha'$ e $n = d\beta'$ per alcuni interi $\alpha'$ e $\beta'$.  Sostituendo questi valori nell'equazione $ax - nk = b$, otteniamo $d\alpha'x - d\beta'k = b$.  Dividendo entrambi i lati per *d*, otteniamo $\alpha'x - \beta'k = \frac{b}{d}$.  Se $\frac{b}{d}$ non è un intero, allora non esiste una soluzione per *x* e *k*, e quindi l'equazione $ax \equiv b \pmod{n}$ non ha soluzioni.  Questo significa che $d$ deve dividere *b*, ovvero $\text{MCD}(\alpha, n) \mid \beta$.
+> >
+> >
+> > Se $\text{MCD}(\alpha, n) \mid \beta$, allora possiamo trovare un intero *x* tale che $ax \equiv b \pmod{n}$.  Infatti, possiamo scrivere $b = \text{MCD}(\alpha, n) \cdot c$ per qualche intero *c*.  Quindi, l'equazione diventa $ax \equiv \text{MCD}(\alpha, n) \cdot c \pmod{n}$.  Poiché $\text{MCD}(\alpha, n)$ divide sia $\alpha$ che *n*, possiamo dividere entrambi i lati per $\text{MCD}(\alpha, n)$ (modulo *n*) e ottenere una soluzione per *x*.  In conclusione, l'equazione $aX = b$ in $\mathbb{Z}/n\mathbb{Z}$ ammette soluzioni se e solo se $\text{MCD}(\alpha, n) \mid \beta$.
+
+> [!info] Lemma
+> 
+> Siano $a, b, c \in \mathbb{Z}$. Se $a \mid c$ e $b \mid c$ e $\text{MCD}(a, b) = 1$, allora $ab \mid c$.
+
+# Teorema Cinese dei Resti
+
+Poniamo $r_{1},\dots,r_{s} \in \mathbb{N}$ e supponiamo $MCD(r_{i}, r_{j})=1\, \forall r_{i} \not = r_{j}$ (ossia sono a due a due coprimi).
+
+Consideriamo inoltre $c_{1},\dots,c_{s} \in \mathbb{Z}$
+
+Allora il sistema
+$$
+(*)
+\begin{cases}
+x \equiv c_{1} \text{ mod }r_{1} \\
+x \equiv c_{2} \text{ mod }r_{2} \\
+\text{ }\vdots \\
+x \equiv c_{S} \text{ mod }r_{s}
+\end{cases}
+$$
+ha un'unica soluzione modulo $R := r_{1}*r_{2}*\dots*r_{s}$ ovvero l'insieme $\varepsilon_{*} = \{ x \text{ soluzione in } \mathbb{Z} \text{ di } (*) \}$ è $x_0 + R\mathbb{Z}$
+
+## Esempi
+
+Per risolvere questo sistema abbiamo bisogno anzitutto di verificare la validità delle singole equazioni, assicurandoci che ognuna ammetta soluzione, ovvero che:
+$$
+\begin{align}
+& a,b \in \mathbb{Z}, r \in \mathbb{N} \\
+& ax \equiv b \text{ (mod } r \text{) ammette soluzione se} \\
+& MCD(a,r) | b
+\end{align}
+$$
+Verificata questa condizione, andiamo a ridurre il nostro sistema affinché $a = 1$, come vedremo nell'esempio.
+
+Infine, per calcolare le soluzioni "principali" del nostro sistema, andiamo a calcolare $mcm(r_{1},\dots,r_{n})$, che sarà il "limite" a cui dovremmo stare nella ricerca della soluzione comune. Essendo i moduli coprimi tra loro, possiamo semplicemente considerare il prodotto $r_{1}*\dots*r_{n}$ come limite essendo questo il loro $mcm$.
+
+> [!warning] Attenzione
+> Questo esempio suppone che $MCD(r_{i},r_{j})=1 \text{ con } r_{i}\not=r_{j}$, ovvero che $r_{i},r_{j}$ siano coprimi tra loro. Nel caso non lo siano, è essenziale calcolare correttamente il $mcm$, che non sarà la semplice produttoria cui sopra.
+
+Vediamo un esempio:
+
+$$
+\begin{align}
+& \begin{cases}
+2x \equiv 7 \text{ (mod }5 \text{)} \\
+3x \equiv 8 \text{ (mod }4\text{)}
+\end{cases} \\
+&  \\
+& MCD(2,5) = 1,\, 1 \mid 7 \implies \text{ammette soluzione} \\
+& MCD (3,4) = 1,\, 1 \mid 8 \implies \text{ammette soluzione} \\
+&  \\
+& -------------------- \\
+& \\
+& x = \frac{5k + 7}{2} \implies \begin{cases}
+k=0 \implies x=\frac{7}{2} \not \in \mathbb{N} \\
+k=1 \implies x = \frac{12}{2} = 6 \in \mathbb{N}
+\end{cases} \\
+& x = \frac{4k+8}{3} \implies \begin{cases}
+k=0 \implies x = \frac{8}{3} \not \in \mathbb{N} \\
+k=1 \implies x = \frac{12}{3} = 4 \in \mathbb{N}
+\end{cases} \\ \\
+& \begin{cases}
+x \equiv 6 \text{ (mod }5 \text{)} \\
+x \equiv 4 \text{ (mod }4 \text{)}
+\end{cases} \\ \\
+& -------------------- \\ \\
+& mcm(5,4) = 20 \\ \\
+& x = 5k+6 \implies 6,11,16,\dots \\
+& x = 4k+4 \implies 4,8,12,16,20,\dots \\ \\
+& \text{Pertanto la soluzione del sistema è } [16]_{20} \\ \\
+& \blacksquare 
+\end{align}
+$$
+
+## Sistema Omogeneo Associato
+
+Si dice **sistema omogeneo associato** un sistema di congruenze della forma:
+
+$$
+*_{(H)} \begin{cases}
+x \equiv 0 \text{ mod } r_{1} \\
+x \equiv 0 \text{ mod } r_{2} \\
+\vdots \\
+x \equiv 0 \text{ mod } r_{s}
+\end{cases}
+$$
+
+Quali sono le soluzioni di questo sistema?
+$$
+\begin{align}
+x \equiv_{r_{1}} 0 \iff r_{1} \mid x \\
+x \equiv_{r_{2}} 0 \iff r_{2} \mid x
+\end{align}
+$$
+Ma $r_{1},r_{2}$ sono primi fra loro, quindi $r_{1}r_{2} \mid x$. Iterando, otteniamo che $R:=r_{1}\dots r_{s} \mid x$.
+Quindi l'insieme delle soluzioni di $*_{(H)}$ è $\varepsilon_{H} = R\mathbb{Z}$ ossia l'insieme dei multipli di $R$.
